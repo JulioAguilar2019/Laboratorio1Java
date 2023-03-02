@@ -1,6 +1,6 @@
 package com.example.laboratorio1.Controller;
-
-import Model.Cliente;
+import com.example.laboratorio1.Model.Cliente;
+import com.example.laboratorio1.DB.Connect;
 import com.example.laboratorio1.ModelDAO.ClienteDAO;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -15,7 +15,7 @@ import java.util.Map;
 
 @WebServlet(name = "ClienteController", value = "/Cliente")
 public class ClienteController extends HttpServlet {
-    DB.Connect cn = new DB.Connect();
+    Connect cn = new Connect();
     ClienteDAO dao = new ClienteDAO(cn.getConnection());
 
     @Override

@@ -1,4 +1,4 @@
-package Model;
+package com.example.laboratorio1.Model;
 
 public class Cliente {
     private int id;

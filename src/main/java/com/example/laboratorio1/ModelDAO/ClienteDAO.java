@@ -1,6 +1,6 @@
 package com.example.laboratorio1.ModelDAO;
 
-import DB.Connect;
+import com.example.laboratorio1.DB.Connect;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Model.Cliente;
+import com.example.laboratorio1.Model.Cliente;
 
 public class ClienteDAO {
     Connect cn = new Connect();

@@ -1,7 +1,7 @@
 package com.example.laboratorio1.ModelDAO;
 
 import com.example.laboratorio1.Model.Pedido;
-
+import com.example.laboratorio1.DB.Connect;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 public class PedidoDAO {
-    DB.Connect cn = new DB.Connect();
+    Connect cn = new Connect();
     Connection con;
 
     public PedidoDAO(Connection con) {

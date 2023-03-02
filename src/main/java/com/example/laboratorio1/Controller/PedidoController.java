@@ -1,6 +1,7 @@
 package com.example.laboratorio1.Controller;
 
 import com.example.laboratorio1.Model.Cliente;
+import com.example.laboratorio1.DB.Connect;
 import com.example.laboratorio1.Model.Pedido;
 import com.example.laboratorio1.ModelDAO.PedidoDAO;
 import com.google.gson.Gson;
@@ -25,7 +26,7 @@ import java.math.BigDecimal;
 @WebServlet(name = "PedidoController", value = "/Pedido")
 public class PedidoController extends HttpServlet {
 
-    DB.Connect cn = new DB.Connect();
+    Connect cn = new Connect();
     PedidoDAO dao = new PedidoDAO(cn.getConnection());
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
