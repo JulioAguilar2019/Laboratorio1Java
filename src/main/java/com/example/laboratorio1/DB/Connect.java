@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class Connect {
-
     Connection connection;
     String url = "jdbc:mysql://localhost:3306/laboratorio1";
     String user = "root";

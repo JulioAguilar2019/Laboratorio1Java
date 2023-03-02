@@ -1,7 +1,7 @@
 package Model;
 
 public class Cliente {
-    private int id_cliente;
+    private int id;
     private String nombre;
     private String direccion;
     private String telefono;
@@ -11,20 +11,27 @@ public class Cliente {
 
     }
 
-    public Cliente(int id_cliente, String nombre, String direccion, String telefono, String email) {
-        this.id_cliente = id_cliente;
+    public Cliente(String nombre, String direccion, String telefono, String email) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
     }
 
-    public int getId_cliente() {
-        return id_cliente;
+    public Cliente(int id, String nombre, String direccion, String telefono, String email) {
+        this.id = id;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.email = email;
     }
 
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
