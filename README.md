@@ -1,5 +1,5 @@
 # Laboratorio1
-##Integrantes
+## Integrantes
 
 |  Apellidos       |Nombres                        |Desarollo                    |
 |------------------|-------------------------------|-----------------------------|
