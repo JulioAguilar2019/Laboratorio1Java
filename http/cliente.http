@@ -1,0 +1,8 @@
+POST http://localhost:8080/Laboratorio1_war_exploded/Cliente?action=post
+
+{
+    "nombre": "321321321",
+    "direccion": "3213213123",
+    "telefono": "1312312321",
+    "email": "23232@gmail.com"
+}

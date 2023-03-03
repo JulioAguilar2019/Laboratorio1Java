@@ -1,4 +1,5 @@
 package com.example.laboratorio1.Controller;
+
 import com.example.laboratorio1.Model.Cliente;
 import com.example.laboratorio1.DB.Connect;
 import com.example.laboratorio1.ModelDAO.ClienteDAO;
@@ -7,6 +8,7 @@ import com.google.gson.JsonObject;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -20,7 +22,6 @@ public class ClienteController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.addHeader("Access-Control-Allow-Origin", "*");
 
         try {
             String json = new Gson().toJson(dao.listar());
@@ -75,7 +76,7 @@ public class ClienteController extends HttpServlet {
             dao.eliminar(id);
             jsonRespo.put("message", "Cliente eliminado");
             jsonRespo.put("status", "200");
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();
@@ -83,7 +84,7 @@ public class ClienteController extends HttpServlet {
             System.out.println(e.getMessage());
             jsonRespo.put("message", "Error al eliminar cliente");
             jsonRespo.put("status", "500");
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();
@@ -104,7 +105,7 @@ public class ClienteController extends HttpServlet {
             jsonRespo.put("message", "Cliente encontrado");
             jsonRespo.put("status", "200");
             jsonRespo.put("data", cliente);
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();
@@ -112,7 +113,7 @@ public class ClienteController extends HttpServlet {
             System.out.println(e.getMessage());
             jsonRespo.put("message", "Error al buscar cliente");
             jsonRespo.put("status", "400");
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();
@@ -132,10 +133,10 @@ public class ClienteController extends HttpServlet {
         String json = "";
 
         try {
-            dao.insertar( new Cliente(nombre, direccion, telefono, email) );
+            dao.insertar(new Cliente(nombre, direccion, telefono, email));
             jsonRespo.put("message", "Cliente registrado");
             jsonRespo.put("status", "200");
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();
@@ -143,7 +144,7 @@ public class ClienteController extends HttpServlet {
             System.out.println(e.getMessage());
             jsonRespo.put("message", "Error al registrar cliente");
             jsonRespo.put("status", "500");
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();
@@ -174,11 +175,11 @@ public class ClienteController extends HttpServlet {
         cliente.setEmail(email);
 
         try {
-            dao.actualizar( cliente );
+            dao.actualizar(cliente);
             jsonRespo.put("message", "Cliente actualizado");
             jsonRespo.put("status", "200");
             jsonRespo.put("data", cliente);
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();
@@ -186,7 +187,7 @@ public class ClienteController extends HttpServlet {
             System.out.println(e.getMessage());
             jsonRespo.put("message", "Error al actualizar cliente");
             jsonRespo.put("status", "500");
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();

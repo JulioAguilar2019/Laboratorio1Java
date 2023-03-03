@@ -28,9 +28,10 @@ public class PedidoController extends HttpServlet {
 
     Connect cn = new Connect();
     PedidoDAO dao = new PedidoDAO(cn.getConnection());
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.addHeader("Access-Control-Allow-Origin", "*");
+
 
         try {
             String json = new Gson().toJson(dao.listar());
@@ -83,7 +84,7 @@ public class PedidoController extends HttpServlet {
             dao.eliminar(id);
             jsonRespo.put("message", "Pedido eliminado");
             jsonRespo.put("status", "200");
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();
@@ -91,7 +92,7 @@ public class PedidoController extends HttpServlet {
             System.out.println(e.getMessage());
             jsonRespo.put("message", "Error al eliminar el pedido");
             jsonRespo.put("status", "500");
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();
@@ -115,7 +116,7 @@ public class PedidoController extends HttpServlet {
             jsonRespo.put("status", "200");
             jsonRespo.put("data", pedido);
             jsonRespo.put("clientName", nombreCliente);
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();
@@ -123,7 +124,7 @@ public class PedidoController extends HttpServlet {
             System.out.println(e.getMessage());
             jsonRespo.put("message", "Error al buscar el pedido");
             jsonRespo.put("status", "400");
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();
@@ -149,10 +150,10 @@ public class PedidoController extends HttpServlet {
         String json = "";
 
         try {
-            dao.insertar( new Pedido(idClienteParsed, fechaParsed,totalParsed, estado) );
+            dao.insertar(new Pedido(idClienteParsed, fechaParsed, totalParsed, estado));
             jsonRespo.put("message", "Pedido registrado");
             jsonRespo.put("status", "200");
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();
@@ -160,7 +161,7 @@ public class PedidoController extends HttpServlet {
             System.out.println(e.getMessage());
             jsonRespo.put("message", "Error al registrar Pedido");
             jsonRespo.put("status", "500");
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();
@@ -196,11 +197,11 @@ public class PedidoController extends HttpServlet {
         pedido.setEstado(estado);
 
         try {
-            dao.actualizar( pedido );
+            dao.actualizar(pedido);
             jsonRespo.put("message", "Pedido actualizado");
             jsonRespo.put("status", "200");
             jsonRespo.put("data", pedido);
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();
@@ -208,7 +209,7 @@ public class PedidoController extends HttpServlet {
             System.out.println(e.getMessage());
             jsonRespo.put("message", "Error al actualizar el pedido");
             jsonRespo.put("status", "500");
-            json = new Gson().toJson( jsonRespo );
+            json = new Gson().toJson(jsonRespo);
 
             out.print(json);
             out.flush();

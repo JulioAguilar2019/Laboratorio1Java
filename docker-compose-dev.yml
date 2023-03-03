@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql
+    container_name: lab1_mysql_db
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: 'laboratorio1'
+      MYSQL_ROOT_PASSWORD: 'laboratorio1'
